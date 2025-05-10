@@ -15,6 +15,7 @@ jobs:
         image: mysql:8
         env:
           MYSQL_ROOT_PASSWORD: root
+          MYSQL_ALLOW_EMPTY_PASSWORD: true
           MYSQL_DATABASE: backend_test
         ports:
           - 3306:3306
@@ -37,9 +38,9 @@ jobs:
 
     - name: Ensure Environment File Exists
       run: |
-        if [ ! -f backend/.env ]; then
-          cp backend/.env.example backend/.env
-        fi
+        cp backend/.env.testing backend/.env
+        php backend/artisan config:clear
+        php backend/artisan cache:clear
 
     - name: Install Composer Dependencies
       run: composer install --no-dev --prefer-dist --working-dir=backend
