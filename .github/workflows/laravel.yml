@@ -42,6 +42,9 @@ jobs:
         php backend/artisan config:clear
         php backend/artisan cache:clear
 
+    - name: Verify Composer.json Exists
+      run: ls backend/composer.json
+
     - name: Install Composer Dependencies
       run: composer install --no-dev --prefer-dist --working-dir=backend
 
