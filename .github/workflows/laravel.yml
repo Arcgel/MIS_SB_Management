@@ -42,7 +42,7 @@ jobs:
       - name: Clean and Reinstall Dependencies
         run: |
           rm -rf backend/vendor
-          composer install --no-dev --prefer-dist --working-dir=backend
+          composer install --prefer-dist --working-dir=backend
 
       - name: Ensure Environment File Exists
         run: cp backend/.env.testing backend/.env
