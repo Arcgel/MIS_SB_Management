@@ -92,4 +92,4 @@ jobs:
         DB_DATABASE: backend_test
         DB_USERNAME: root
         DB_PASSWORD: root
-      run: php backend/artisan test
+      run: php backend/make test
