@@ -36,12 +36,6 @@ jobs:
         extensions: mbstring, zip, xml, pdo, pdo_mysql
         coverage: none
 
-    - name: Ensure Environment File Exists
-      run: |
-        cp backend/.env.testing backend/.env
-        php backend/artisan config:clear
-        php backend/artisan cache:clear
-
     - name: Verify Composer.json Exists
       run: ls backend/composer.json
 
@@ -49,6 +43,9 @@ jobs:
       run: |
         rm -rf backend/vendor
         composer install --no-dev --prefer-dist --working-dir=backend
+
+    - name: Ensure Environment File Exists
+      run: cp backend/.env.testing backend/.env
 
     - name: Generate Application Key
       run: php backend/artisan key:generate
