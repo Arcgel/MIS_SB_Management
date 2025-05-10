@@ -11,8 +11,6 @@ class ExpenseTest extends TestCase
 {
     use RefreshDatabase;
 
-
-
     public function test_expense_can_be_created(): void
     {
     $response = $this->post(route('add.expense'), [
