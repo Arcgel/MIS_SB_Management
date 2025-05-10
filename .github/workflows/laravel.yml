@@ -2,9 +2,9 @@ name: Laravel CI/CD
 
 on:
   push:
-    branches: [ "Development, master" ]
+    branches: [ "Development", "master" ]
   pull_request:
-    branches: [ "Development, master" ]
+    branches: [ "Development", "master" ]
 
 jobs:
   laravel-tests:
@@ -48,6 +48,9 @@ jobs:
 
     - name: Clear Cache & Config
       run: php artisan config:clear && php artisan cache:clear
+
+    - name: Wait for MySQL
+      run: sleep 15
 
     - name: Migrate Database
       env:
