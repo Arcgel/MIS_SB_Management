@@ -1,0 +1,325 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+}
+
+.content-wrapper {
+    margin-left: 250px;
+    width: 100%;
+    padding: 30px;
+}
+
+.title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.brandName h1 {
+    color: #ff5e78;
+    font-size: 2em;
+    font-weight: bold;
+}
+
+.action-bar {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+
+}
+
+.action-bar img{
+    width: 30px;
+    height: 30px;
+    margin-right: 5px;
+    vertical-align: middle;
+}
+.btn {
+    background-color: white;
+    border: 1px solid rgb(255, 133, 153);
+    border-radius: 20px;
+    padding: 12px 20px;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.4s ease-in-out;
+    align-items: center;
+    color: #ff5e78;
+    text-decoration: none;
+}
+
+.btn:hover {
+    transform: scale(1.02);
+    background: linear-gradient(to right, #ff5e78, #ff6ec7);
+    color: white;
+    box-shadow: 0 2px 10px rgba(255, 18, 117, 0.315);
+}
+
+.btn-icon {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.inventorys-table {
+    background-color: white;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(255, 138, 206, 0.2);
+}
+
+.inventorys-table table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.inventorys-table th {
+    text-align: left;
+    padding: 15px;
+    border-bottom: 1px solid #f0f0f0;
+    color: #ff5e78;
+    font-weight: 600;
+}
+
+.inventorys-table td {
+    padding: 15px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.inventorys-table tr:last-child td {
+    border-bottom: none;
+}
+
+.expirationDate{
+    color: red;
+}
+.status {
+    display: inline-block;
+    padding: 8px 20px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.status-in-stock {
+    border: 1px solid green;
+    background-color: rgba(192, 255, 133, 0.29);
+    color: green;
+}
+
+.status-low {
+    border: 1px solid orange;
+    background-color: rgba(255, 188, 133, 0.29);
+    color: orange;
+}
+
+.status-out {
+    border: 1px solid red;
+    background-color: rgba(255, 133, 133, 0.29);
+    color: red;
+}
+
+.action-btn {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.action-btn button {
+    color: #ff5e78;
+    font-weight: 500;
+    background: transparent;
+    border: none;
+    padding: 8px 12px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: all 0.4s ease;
+    gap: 10px;
+    align-items: center;
+}
+
+.action-btn button:hover{
+    transform: scale(1.02);
+}
+
+.archive img, .edit img {
+    width: 30px;
+    height: 30px;
+    vertical-align: middle;
+}
+
+#new-inventory-form {
+   display: none;
+    padding: 30px;
+    border-radius: 10px;
+    width: 500px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    border: 1px solid lightpink;
+    box-shadow: 0 5px 15px rgba(255, 94, 120, 0.2);
+    -webkit-backdrop-filter: blur(6px);
+    backdrop-filter: blur(6px);
+}
+
+#new-inventory-form h2{
+    margin-top: 0;
+    margin-bottom: 25px;
+    text-align: center;
+    color: #ff5e78;
+    font-size: 1.8em;
+    font-weight: 600;
+}
+
+#new-inventory-form div{
+    margin-bottom: 20px;
+}
+
+#new-inventory-form label{
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #555;
+    font-size: 1em;
+}
+
+#new-inventory-form input[type="text"],
+#new-inventory-form input[type="number"],
+#new-inventory-form input[type="date"]{
+    width: 100%;
+    padding: 12px;
+    border: 1px solid lightpink;
+    border-radius: 25px;
+    font-size: 1em;
+    transition: all 0.3s ease;
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+#new-inventory-form input[type="text"]:focus,
+#new-inventory-form input[type="number"]:focus,
+#new-inventory-form input[type="date"]:focus{
+    outline: none;
+    border-color: #ff6ec7;
+    box-shadow: 0 0 5px rgba(255, 100, 150, 0.3);
+}
+
+#new-inventory-form button[type="submit"], #edit-inventory-form button[type="submit"]{
+    color: #ff5e78;
+    background-color: white;
+    padding: 12px 25px;
+    border: 1px solid #ff5e78;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: all 0.3s ease;
+    float: right;
+}
+
+#new-inventory-form button[type="submit"]:hover, #edit-inventory-form button[type="submit"]:hover{
+    border: 1px solid white;
+    color: white;
+    background: linear-gradient(to right, #ff5e78, #ff6ec7);
+}
+
+#closeNewFormButton, #closeEditFormButton{
+    float: right;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+#closeNewFormButton:hover, #closeNewFormButton:hover{
+    transform: scale(1.05);
+}
+
+#closeNewFormButton img, #closeNewFormButton img {
+    width: 30px;
+    height: 30px;
+}
+
+#edit-inventory-form {
+    display: none;
+    padding: 30px;
+    border-radius: 10px;
+    width: 500px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    background-color: white;
+    border: 1px solid lightpink;
+    box-shadow: 0 5px 15px rgba(255, 94, 120, 0.2);
+
+}
+#edit-inventory-form h2 {
+    color: #ff5e78;
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 1.8em;
+}
+
+#edit-inventory-form button#closeEditFormButton {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+#edit-inventory-form button#closeEditFormButton img {
+    width: 24px;
+    height: 24px;
+    opacity: 0.6;
+    transition: opacity 0.3s ease;
+}
+
+#edit-inventory-form button#closeEditFormButton img:hover {
+    opacity: 1;
+}
+
+#edit-inventory-form form div {
+    margin-bottom: 20px;
+}
+
+#edit-inventory-form label {
+    display: block;
+    color: #ff84a2;
+    font-weight: bold;
+    margin-bottom: 8px;
+    font-size: 0.95em;
+}
+
+#edit-inventory-form input[type="text"],
+#edit-inventory-form input[type="number"],
+#edit-inventory-form input[type="date"] {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid lightpink;
+    border-radius: 25px;
+    font-size: 1em;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+    background-color: rgba(255, 235, 245, 0.5);
+}
+
+#edit-inventory-form input[type="text"]:focus,
+#edit-inventory-form input[type="number"]:focus,
+#edit-inventory-form input[type="date"]:focus {
+    outline: none;
+    border-color: #ff6ec7;
+    box-shadow: 0 0 5px rgba(255, 100, 150, 0.3);
+}
+

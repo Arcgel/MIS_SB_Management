@@ -7,6 +7,8 @@
     <title>MIS&SB Products</title>
     <link rel="stylesheet" href="{{asset('css/products.css')}}">
     <link rel="shortcut icon" href="{{asset('/images/oop_logo.png')}}" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
 </head>
 
 <body>
@@ -26,13 +28,13 @@
     @endif
     <main class="main-content">
         <div class="header-section">
-            <h1 class="h3 mb-3">MIS & SB Product Management</h1>
+            <h1 class="h3 mb-3">Product Management</h1>
             <div>
                 <button class="btn btn-primary" onclick="toggleForm('addProductForm')">
                     <img src="/images/add.png" alt=""> Add Product
                 </button>
                 <a href="{{route('archive-products')}}" class="btn btn-warning">
-                   <img src="/images/archives.png" alt=""> Archive
+                   <img src="/images/archives.png" alt=""> Archives
                 </a>
             </div>
         </div>

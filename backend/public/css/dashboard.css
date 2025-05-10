@@ -1,0 +1,122 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  body {
+    min-height: 100vh;
+    display: flex;
+  }
+
+  .content-wrapper {
+    margin-left: 250px;
+    width: 100%;
+    padding: 30px;
+  }
+
+  .main-container {
+    flex: 1;
+    padding: 2rem;
+  }
+
+  h1 {
+    font-size: 25px;
+    font-weight: 600;
+    color: #ff5e78;
+    margin-bottom: 0.5rem;
+  }
+
+  .welcome-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 2rem;
+    background: linear-gradient(to right, #ff5e78, #ff6ec7);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    display: inline-block;
+  }
+
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    margin-bottom: 2rem;
+  }
+
+  .card {
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 6px 18px rgba(255, 94, 120, 0.2);
+    padding: 1.8rem;
+    transition: all 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 24px rgba(255, 94, 120, 0.3);
+  }
+
+  .card-title {
+    font-size: 20px;
+    font-weight: 600;
+    color: #ff5e78;
+    margin-bottom: 1rem;
+  }
+
+  .stat-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+
+  .stat-value {
+    font-size: 28px;
+    font-weight: 700;
+    background: linear-gradient(to right, #ff5e78, #ff6ec7);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .stat-label {
+    font-size: 14px;
+    color: #777;
+  }
+
+  .trend-up {
+    color: #4caf50;
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  .trend-down {
+    color: #f44336;
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  .chart-container {
+    width: 100%;
+    height: 250px;
+    margin-top: auto;
+  }
+
+  .card:nth-child(3) {
+    grid-column: span 2;
+    height: 400px;
+  }
+
+  @media (max-width: 768px) {
+    .card:nth-child(3) {
+      grid-column: span 1;
+      height: auto;
+    }
+  }

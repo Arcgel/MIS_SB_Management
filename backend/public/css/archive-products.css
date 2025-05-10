@@ -1,166 +1,98 @@
-body{
-    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    margin: 2rem;
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #444;
 }
 
-.title {
-    margin-top: -5rem;
-    display: flex;
-    justify-content: center;
-    text-align: center;
-}
-
-.content {
-    width: 900px;
-}
-
-.title h1 {
-    color: #c52575;
-    font-size: 2.5em;
-    margin-bottom: 0.5em;
-}
-
-.title p {
-    text-align: center;
-    color: gray;
-    font-size: 1.2em;
+.container {
+    max-width: 95%;
+    margin: 2rem auto;
+    padding: 1rem;
 }
 
 .back-link {
-    display: inline-flex;
-    align-items: center;
-    text-decoration: none;
-    color: #d85c99;
-    font-weight: 600;
-    margin-bottom: 20px;
-    transition: color 0.3s ease;
+    position: absolute;
+    top: 20px;
+    left: 20px;
 }
 
 .back-link img {
-    width: 30px;
-    width: 30px;
-    margin: 2rem
+    width: 35px;
+    height: 35px;
+    transition: transform 0.3s ease;
 }
 
-.back-link:hover {
-    color: #ff4d8b;
-    text-decoration: underline;
+.back-link img:hover {
+    transform: scale(1.1);
 }
-.table-responsive {
-    margin-top: 1rem;
-    background: white;
-    border-radius: 16px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-    border: 2px solid rgba(255, 27, 140, 0.15);
-    overflow: auto;
-    max-height: 500px;
+
+h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 1.5rem;
 }
 
 .table {
     width: 100%;
     border-collapse: collapse;
-    table-layout: fixed;
-    min-width: 500px;
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
 }
 
-.table th,
-.table td {
+.table th, .table td {
+    padding: 18px 10px;
+    border-bottom: 1px solid #ccc;
     text-align: center;
-    vertical-align: middle;
-    padding: 15px 12px;
-    font-size: 14px;
-    font-weight: 600;
-    line-height: 1.4;
 }
 
-.table thead th {
-    position: sticky;
-    top: 0;
-    background-color: #FAEBD7;
-    z-index: 1;
-    color: #a15a7f;
-    font-size: 1.2em;
-    font-weight: bolder;
-}
-
-.table td {
-    color: gray;
-    font-size: medium;
+.table th {
+    background-color: #e0e0e0;
+    color: #333;
     font-weight: 600;
 }
 
-.table tr:nth-child(odd) {
-    border-bottom: 1px solid #ffb0ccc7;
-    border-top: 1px solid #ffb0ccc7;
-}
-
-.table tr:nth-child(even) {
-    background-color: #fcf0e196;
-}
-
-.table tr:nth-child(even):hover {
-    background-color: #fff1df;
-}
-
-.table tr:hover {
-    transition: background-color 0.3s ease;
+.table tbody tr:nth-child(even) {
+    background-color: #f8f8f8;
 }
 
 .product-img {
-    height: 80px;
-    object-fit: contain;
-    transition: transform 0.4s ease;
-    border-radius: 10px;
-}
-
-.product-img:hover {
-    transform: scale(1.08);
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 6px;
+    border: 1px solid #ccc;
 }
 
 .action-buttons {
     display: flex;
-    flex-wrap: nowrap;
-    gap: .5rem;
-    margin: 0 0 0 -2.5rem;
-}
-
-.action-buttons form {
-    display: inline-block;
-    margin: 0;
+    justify-content: center;
+    gap: 8px;
 }
 
 .action-buttons button {
-    margin: 2rem 0 2rem 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 8px;
-    padding: 5px 13px;
-    font-size: 0.9rem;
+    background: transparent;
+    border: none;
     font-weight: 600;
-    border-radius: 20px;
-    transition: all 0.3s ease;
-    border: 1px solid #ff2d76;
-    background-color: white;
-    color: #d85c99;
+    font-family: 'Poppins', sans-serif;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: #666;
+    transition: color 0.3s ease;
 }
 
-.action-buttons img{
-    height: 28px;
-    width: 28px;
-}
-
-.restore-button:hover{
-    border: 1px solid blue;
+.action-buttons button.restore-btn:hover {
     color: blue;
 }
 
-.delete-button:hover{
-    border: 1px solid red;
+.action-buttons button.delete-btn:hover {
     color: red;
 }
 
-.action-buttons button:hover {
-    transform: scale(1.02);
-}
+.action-buttons img {
+    width: 20px;
+    height: 20px;

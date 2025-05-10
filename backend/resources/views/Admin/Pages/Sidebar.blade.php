@@ -23,8 +23,8 @@
         </li>
 
         <li>
-            <a href="">
-                <img src="/images/sales.png" alt="">
+        <a href="{{route('sales')}}">
+            <img src="/images/sales.png" alt="">
             <span class="nav-text">Sales</span>
           </a>
         </li>
@@ -44,9 +44,9 @@
         </li>
 
         <li>
-        <a href="">
-        <img src="assets/components/ingredients.png" alt="">
-            <span class="nav-text">Ingredients</span>
+        <a href="{{route('inventory')}}">
+        <img src="assets/components/inventory.png" alt="">
+            <span class="nav-text">Inventory</span>
           </a>
         </li>
 

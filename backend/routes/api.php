@@ -14,3 +14,4 @@ Route::get('/storage/{imageName}', function ($imageName) {
     return response()->file(public_path('/images/' . $imageName));
 });
 
+

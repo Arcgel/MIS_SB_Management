@@ -14,4 +14,5 @@ run:
 	php artisan serve
 
 test:
+	php artisan migrate:fresh --env=testing
 	php artisan test
