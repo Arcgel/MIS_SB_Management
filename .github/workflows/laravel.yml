@@ -2,7 +2,7 @@ name: Laravel CI/CD
 
 on:
   push:
-    branches: [ "Development. master" ]
+    branches: [ "Development, master" ]
   pull_request:
     branches: [ "Development, master" ]
 
