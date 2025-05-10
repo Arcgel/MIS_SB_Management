@@ -38,7 +38,7 @@ jobs:
       run: php -r "file_exists('.env') || copy('.env.testing', '.env');"
 
     - name: Install Dependencies
-      run: composer install --no-dev --prefer-dist
+      run: composer install --no-dev --prefer-dist --working-dir=backend
 
     - name: Generate Application Key
       run: php artisan key:generate
