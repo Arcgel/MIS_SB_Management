@@ -35,8 +35,11 @@ jobs:
         extensions: mbstring, zip, xml, pdo, pdo_mysql
         coverage: none
 
-    - name: Copy Environment File
-      run: php -r "file_exists('backend/.env.testing') || copy('backend/.env.example', 'backend/.env.testing');"
+    - name: Ensure Environment File Exists
+      run: |
+        if [ ! -f backend/.env ]; then
+          cp backend/.env.example backend/.env
+        fi
 
     - name: Install Composer Dependencies
       run: composer install --no-dev --prefer-dist --working-dir=backend
@@ -50,7 +53,7 @@ jobs:
     - name: Clear Cache & Config
       run: php backend/artisan config:clear && php backend/artisan cache:clear
 
-    - name: Wait for MySQL
+    - name: Wait for MySQL to Start
       run: sleep 15
 
     - name: Migrate Database
