@@ -61,7 +61,7 @@ jobs:
         DB_DATABASE: backend_test
         DB_USERNAME: root
         DB_PASSWORD: root
-      run: php backend/artisan cache:table && php backend/artisan migrate --force
+      run: php backend/artisan migrate --force
 
     - name: Clear Cache & Config
       run: php backend/artisan config:clear && php backend/artisan cache:clear
