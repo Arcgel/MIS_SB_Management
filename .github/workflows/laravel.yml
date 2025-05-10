@@ -15,6 +15,7 @@ jobs:
         image: mysql:8
         env:
           MYSQL_ROOT_PASSWORD: root
+          MYSQL_ALLOW_EMPTY_PASSWORD: true
           MYSQL_DATABASE: backend_test
         ports:
           - 3306:3306
@@ -35,14 +36,16 @@ jobs:
         extensions: mbstring, zip, xml, pdo, pdo_mysql
         coverage: none
 
-    - name: Ensure Environment File Exists
-      run: |
-        if [ ! -f backend/.env ]; then
-          cp backend/.env.example backend/.env
-        fi
+    - name: Verify Composer.json Exists
+      run: ls backend/composer.json
 
-    - name: Install Composer Dependencies
-      run: composer install --no-dev --prefer-dist --working-dir=backend
+    - name: Clean and Reinstall Dependencies
+      run: |
+        rm -rf backend/vendor
+        composer install --no-dev --prefer-dist --working-dir=backend
+
+    - name: Ensure Environment File Exists
+      run: cp backend/.env.testing backend/.env
 
     - name: Generate Application Key
       run: php backend/artisan key:generate
@@ -50,14 +53,15 @@ jobs:
     - name: Set Directory Permissions
       run: chmod -R 777 backend/storage backend/bootstrap/cache
 
-    - name: Clear Cache & Config
-      run: php backend/artisan config:clear && php backend/artisan cache:clear
+    - name: Wait for MySQL to Fully Initialize
+      run: sleep 30
 
-    - name: Wait for MySQL to Start
-      run: sleep 15
+    - name: Check MySQL Service Status
+      run: |
+        sudo service mysql status || sudo service mysql start
 
     - name: Debug MySQL Connection
-      run: mysql -u root -proot -e "SHOW DATABASES;"
+      run: mysql -h 127.0.0.1 -u root -proot -e "SHOW DATABASES;"
 
     - name: Migrate Database
       env:
@@ -68,6 +72,9 @@ jobs:
         DB_USERNAME: root
         DB_PASSWORD: root
       run: php backend/artisan migrate --force
+
+    - name: Clear Cache & Config
+      run: php backend/artisan config:clear && php backend/artisan cache:clear
 
     - name: Run Laravel Tests
       env:
