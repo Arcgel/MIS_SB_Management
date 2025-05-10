@@ -45,8 +45,10 @@ jobs:
     - name: Verify Composer.json Exists
       run: ls backend/composer.json
 
-    - name: Install Composer Dependencies
-      run: composer install --no-dev --prefer-dist --working-dir=backend
+    - name: Clean and Reinstall Dependencies
+      run: |
+        rm -rf backend/vendor
+        composer install --no-dev --prefer-dist --working-dir=backend
 
     - name: Generate Application Key
       run: php backend/artisan key:generate
