@@ -63,7 +63,7 @@ jobs:
         DB_PORT: 3306
         DB_DATABASE: backend_test
         DB_USERNAME: root
-        DB_PASSWORD: root
+        DB_PASSWORD:
       run: php backend/artisan migrate --force
 
     - name: Run Laravel Tests
@@ -73,5 +73,5 @@ jobs:
         DB_PORT: 3306
         DB_DATABASE: backend_test
         DB_USERNAME: root
-        DB_PASSWORD: root
+        DB_PASSWORD:
       run: php backend/artisan test
